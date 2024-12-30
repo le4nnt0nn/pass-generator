@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:PassGenerator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid Margin="20">
+        <!--title-->
+        <TextBlock Text="Generador de Contraseñas" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <!--long-->
+        <TextBlock Text="Longitud de la contraseña:" VerticalAlignment="Top" Margin="10,50,0,0" HorizontalAlignment="Left"/>
+        <Slider x:Name="sliderLongitud" Minimum="4" Maximum="64" Value="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,50,0,0" Width="200"/>
+        <TextBlock x:Name="txtLongitud" Text="8" VerticalAlignment="Top" Margin="420,50,0,0" HorizontalAlignment="Left"/>
     </Grid>
 </Window>

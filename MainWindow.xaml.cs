@@ -24,5 +24,17 @@ namespace PassGenerator
         {
             InitializeComponent();
         }
+
+        private void btnGen_Click(object sender, EventArgs e)
+        {
+            // base char
+            string numbers = "0123456789";
+            string mayusLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string minusLetters = "abcdefghijklmnopqrstuvwxyz";
+            string specialChars = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
+
+            // create characters group
+            StringBuilder cgroup = new StringBuilder();
+        }
     }
 }
