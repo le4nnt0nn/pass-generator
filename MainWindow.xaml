@@ -7,11 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="20">
-        <!--title-->
-        <TextBlock Text="Generador de Contraseñas" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-        <!--long-->
-        <TextBlock Text="Longitud de la contraseña:" VerticalAlignment="Top" Margin="10,50,0,0" HorizontalAlignment="Left"/>
-        <Slider x:Name="sliderLongitud" Minimum="4" Maximum="64" Value="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,50,0,0" Width="200"/>
-        <TextBlock x:Name="txtLongitud" Text="8" VerticalAlignment="Top" Margin="420,50,0,0" HorizontalAlignment="Left"/>
+        <!-- title -->
+        <TextBlock Text="Password Generator" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        
+        <!-- long -->
+        <TextBlock Text="Password long:" VerticalAlignment="Top" Margin="10,50,0,0" HorizontalAlignment="Left"/>
+        <Slider x:Name="sliderLong" Minimum="4" Maximum="64" Value="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,50,0,0" Width="200"/>
+        <TextBlock x:Name="txtLong" Text="8" VerticalAlignment="Top" Margin="420,50,0,0" HorizontalAlignment="Left"/>
+        
+        <!-- char options -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0">
+            <CheckBox x:Name="chkNumbers" Content="Incluir números" IsChecked="True"/>
+            <CheckBox x:Name="chkMayus" Content="Incluir letras mayúsculas" IsChecked="True"/>
+            <CheckBox x:Name="chkMinus" Content="Incluir letras minúsculas" IsChecked="True"/>
+            <CheckBox x:Name="chkSpecials" Content="Incluir caracteres especiales" IsChecked="True"/>
+        </StackPanel>
+
+        <!-- buttons -->
+        <Button x:Name="btnGen" Content="Generate password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Width="150" Height="30"/>
+        <Button x:Name="btnCopy" Content="Copy to clipboard" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,250,0,0" Width="150" Height="30"/>
+
+        <!-- result -->
+        <TextBox x:Name="txtPass" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0" Width="500" Height="30" FontSize="14"/>
     </Grid>
 </Window>
