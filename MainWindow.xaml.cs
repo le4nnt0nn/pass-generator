@@ -43,13 +43,18 @@ namespace PassGenerator
 
             // check if all selection is off
             if (cgroup.Length == 0) { MessageBox.Show("Select 1 option to continue.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
-        }
 
+            // generate password
+            int length = (int)sliderLong.Value;
+            txtPass.Text = generatePass(length, cgroup.ToString());
+        }
+      
         private string generatePass(int lon, string charactersGroup)
         {
             StringBuilder passw = new StringBuilder();
             Random r = new Random();
 
+            // put random chars in builder
             for (int i = 0; i < lon; i++)
             {
                 int idx = r.Next(charactersGroup.Length);
@@ -60,10 +65,12 @@ namespace PassGenerator
 
         private void btnCopy_Click(object sender, RoutedEventArgs e)
         {
+            // check if txtPass is null to copy to the clipboard
             if(!string.IsNullOrEmpty(txtPass.Text))
             {
-                Clipboard
-            }
+                Clipboard.SetText(txtPass.Text);
+                MessageBox.Show("Password copied to the clipboard.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else { MessageBox.Show("There is not a password generated to copy.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); }
         }
     }
 }

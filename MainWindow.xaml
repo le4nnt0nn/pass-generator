@@ -24,8 +24,8 @@
         </StackPanel>
 
         <!-- buttons -->
-        <Button x:Name="btnGen" Content="Generate password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Width="150" Height="30"/>
-        <Button x:Name="btnCopy" Content="Copy to clipboard" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,250,0,0" Width="150" Height="30"/>
+        <Button x:Name="btnGen" Content="Generate password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Width="150" Height="30" Click="btnGen_Click"/>
+        <Button x:Name="btnCopy" Content="Copy to clipboard" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,250,0,0" Width="150" Height="30" Click="btnCopy_Click"/>
 
         <!-- result -->
         <TextBox x:Name="txtPass" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0" Width="500" Height="30" FontSize="14"/>
