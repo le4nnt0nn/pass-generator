@@ -114,7 +114,7 @@ namespace PassGenerator
             // update visual controls
             pbStrength.Value = criteriaMet;
             txtStrength.Text = strengthTxt;
-            txtStrength.Foreground = strengthColor;
+            txtStrength.Foreground = new SolidColorBrush(((SolidColorBrush)strengthColor).Color);
         }
     }
 }
