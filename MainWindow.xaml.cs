@@ -46,7 +46,11 @@ namespace PassGenerator
 
             // generate password
             int length = (int)sliderLong.Value;
-            txtPass.Text = generatePass(length, cgroup.ToString());
+            string password = generatePass(length, cgroup.ToString());
+            txtPass.Text = password;
+
+            // evaluate password strenght
+            evaluatePasswdStrength(password);
         }
       
         private string generatePass(int lon, string charactersGroup)
@@ -71,6 +75,46 @@ namespace PassGenerator
                 Clipboard.SetText(txtPass.Text);
                 MessageBox.Show("Password copied to the clipboard.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             } else { MessageBox.Show("There is not a password generated to copy.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); }
+        }
+
+        // evaluate passwd strength
+        private void evaluatePasswdStrength(string passwd)
+        {
+            // init conditionals
+            bool hasUpper = passwd.Any(char.IsUpper);
+            bool hasLower = passwd.Any(char.IsLower);
+            bool hasDigit = passwd.Any(char.IsDigit);
+            bool hasSpecial = passwd.Any(ch => !char.IsLetterOrDigit(ch));
+            int criteriaMet = new[] { hasUpper, hasLower, hasDigit, hasSpecial }.Count(c => c);
+
+            // determinate text & color
+            string strengthTxt;
+            Brush strengthColor;
+
+            switch (criteriaMet)
+            {
+                case 4:
+                    strengthTxt = "Strong";
+                    strengthColor = Brushes.Green;
+                    break;
+                case 3:
+                    strengthTxt = "Moderate";
+                    strengthColor = Brushes.Orange;
+                    break;
+                case 2:
+                    strengthTxt = "Weak";
+                    strengthColor = Brushes.Red;
+                    break;
+                default:
+                    strengthTxt = "Very Weak";
+                    strengthColor = Brushes.DarkRed;
+                    break;
+            }
+
+            // update visual controls
+            pbStrength.Value = criteriaMet;
+            txtStrength.Text = strengthTxt;
+            txtStrength.Foreground = strengthColor;
         }
     }
 }
