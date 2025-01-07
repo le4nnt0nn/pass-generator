@@ -146,5 +146,13 @@ namespace PassGenerator
 
             MessageBox.Show("Password saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void lstPasswords_SelectionChanged(object sender, RoutedEvent e)
+        {
+            if(lstPasswords.SelectedItem is PasswordEntry selectedEntry)
+            {
+                MessageBox.Show($"Password: {selectedEntry.Password}", "Password Detail", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
     }
 }
