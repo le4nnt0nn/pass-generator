@@ -20,6 +20,9 @@ namespace PassGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+        // temp stored passwords
+        List<PasswordEntry> passwordEntries = new List<PasswordEntry>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -115,6 +118,33 @@ namespace PassGenerator
             pbStrength.Value = criteriaMet;
             txtStrength.Text = strengthTxt;
             txtStrength.Foreground = new SolidColorBrush(((SolidColorBrush)strengthColor).Color);
+        }
+
+        private void btnSavePassword_Click(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrEmpty(txtPasswordName.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Please fill in both fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // add to list
+            var entry = new PasswordEntry
+            {
+                Name = txtPasswordName.Text,
+                Password = txtPassword.Text
+            };
+
+            passwordEntries.Add(entry);
+
+            // update list
+            lstPasswords.Items.Add(entry);
+
+            // clear input fields
+            txtPasswordName.Clear();
+            txtPassword.Clear();
+
+            MessageBox.Show("Password saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
