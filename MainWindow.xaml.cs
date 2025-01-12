@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -166,6 +168,21 @@ namespace PassGenerator
             } else
             {
                 MessageBox.Show("No password selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void savePasswordsToFile()
+        {
+            try
+            {
+                // serialize password list
+                var json = JsonSerializer.Serialize(passwordEntries);
+                File.WriteAllText("passwords.json", json);
+                MessageBox.Show("Passwords saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving passwords: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
