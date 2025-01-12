@@ -94,10 +94,6 @@ Please make sure to include tests for your new features or bug fixes.
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact ✉️
-
-For any questions or feedback, please open an issue or contact us at [email@example.com](mailto:email@example.com).
-
 ---
 
 ### Example Output 🧪
