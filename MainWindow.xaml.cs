@@ -154,5 +154,19 @@ namespace PassGenerator
                 MessageBox.Show($"Password: {selectedEntry.Password}", "Password Detail", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
+        private void btnDeletePassword_Click(object sender, RoutedEvent e)
+        {
+            if(lstPasswords.SelectedItem is PasswordEntry selectedEntry)
+            {
+                passwordEntries.Remove(selectedEntry);
+                lstPasswords.Items.Remove(selectedEntry);
+
+                MessageBox.Show("Password deleted successfuly!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else
+            {
+                MessageBox.Show("No password selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }
