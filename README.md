@@ -43,7 +43,7 @@ $ dotnet build
 
 ## Usage ⚙️
 
-Run the tool directly from the command line or integrate it into your own projects.
+Run the tool directly from the command line or integrate it into your own projects. (C# example)
 
 ### Command Line Usage
 ```bash
