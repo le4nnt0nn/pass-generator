@@ -1,6 +1,6 @@
 # Password Generator 🔒
 
-A lightweight and secure tool for generating random passwords to enhance your online security. The **Password Generator** ensures that your passwords are strong, unique, and resistant to brute-force attacks.
+A lightweight and secure tool for generating random passwords, built with Windows Forms to provide a user-friendly graphical interface. The **Password Generator** ensures strong, unique passwords, helping enhance your security against threats.
 
 ## Features 🌟
 
@@ -10,9 +10,9 @@ A lightweight and secure tool for generating random passwords to enhance your on
   - 🔡 Lowercase letters
   - 🔢 Numbers
   - 🛠 Special characters
-- **Secure Randomness:** Uses cryptographically secure random number generation for added security.
-- **User-Friendly Interface:** Simple and intuitive design for both technical and non-technical users.
-- **Open Source:** Fully transparent codebase.
+- **Secure Randomness:** Cryptographically secure random generation.
+- **Intuitive Windows Forms Interface:** Easy-to-use graphical interface for everyone.
+- **Copy to Clipboard:** Quickly copy generated passwords for seamless use.
 
 ## Table of Contents 📋
 
@@ -25,7 +25,7 @@ A lightweight and secure tool for generating random passwords to enhance your on
 
 ## Getting Started 🚀
 
-This project is designed to help users create secure passwords quickly. Whether you're securing personal accounts or enterprise systems, the Password Generator provides a reliable solution.
+This project helps users create secure passwords with a clean, responsive Windows Forms interface. Ideal for personal and professional use.
 
 ## Installation 🛠
 
@@ -36,45 +36,37 @@ $ cd password-generator
 ```
 
 ### Build the Project
-This project requires .NET 6 or higher. Build the project using the .NET CLI:
-```bash
-$ dotnet build
-```
+This project requires Visual Studio with .NET Framework support. Open the `.sln` file and build the solution.
+
+### Run the Application
+Run the application directly from Visual Studio or build it into an executable file.
 
 ## Usage ⚙️
 
-Run the tool directly from the command line or integrate it into your own projects. (C# example)
+Launch the application, and the Windows Forms interface will guide you through password generation. Customize settings such as length, character sets, and more.
 
-### Command Line Usage
-```bash
-$ dotnet run --length 16 --include-special --exclude-numbers
-```
+### Features in the Interface:
+- **Length Selector:** Adjust the slider or input a value for the password length.
+- **Checkboxes for Character Types:** Toggle uppercase, lowercase, numbers, and special characters.
+- **Generate Button:** Click to create a password.
+- **Copy Button:** Instantly copy the password to your clipboard.
 
-#### Options:
-- `--length` : Specify the length of the password (default: 12).
-- `--include-special` : Include special characters in the password.
-- `--exclude-numbers` : Exclude numbers from the password.
-- `--help` : View all options.
-
-### Integration in C# Code
-You can also use the Password Generator as a library in your C# projects:
-
-```csharp
-using PasswordGenerator;
-
-// Generate a password with custom settings
-var password = PasswordGenerator.GeneratePassword(length: 16, includeSpecial: true, excludeNumbers: true);
-Console.WriteLine($"Generated password: {password}");
-```
+### Example Workflow:
+1. Set the desired password length (e.g., 16 characters).
+2. Select the types of characters to include.
+3. Click **Generate** to create a password.
+4. Use the **Copy** button to save it to your clipboard.
 
 ## Configuration ⚙️
 
-Edit the default settings in `appsettings.json` to customize the behavior of the password generator:
-```json
-{
-  "DefaultLength": 12,
-  "IncludeSpecial": true,
-  "ExcludeNumbers": false
+Default settings can be adjusted in the source code for tailored behavior:
+```csharp
+public static class Config {
+    public const int DefaultLength = 12;
+    public const bool IncludeSpecial = true;
+    public const bool IncludeNumbers = true;
+    public const bool IncludeUppercase = true;
+    public const bool IncludeLowercase = true;
 }
 ```
 
@@ -88,7 +80,7 @@ We welcome contributions! Follow these steps to contribute:
 4. Push to the branch (`git push origin feature/new-feature`).
 5. Open a Pull Request.
 
-Please make sure to include tests for your new features or bug fixes :).
+Please ensure any new features or bug fixes are tested before submitting.
 
 ## License 📄
 
@@ -96,10 +88,11 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
+### Screenshot 📸
+
+
+
 ### Example Output 🧪
 
-```bash
-$ dotnet run --length 16 --include-special
-Generated password: A$9v!F2k^GzP&x1W
-```
+Generated Password Example: `A$9v!F2k^GzP&x1W`
 
