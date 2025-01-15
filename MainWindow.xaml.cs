@@ -185,5 +185,29 @@ namespace PassGenerator
                 MessageBox.Show($"Error saving passwords: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void loadPasswordsFromFile()
+        {
+            try
+            {
+                if (File.Exists("passwords.json"))
+                {
+                    // read file content
+                    var json = File.ReadAllText("passwords.json");
+                    passwordEntries = JsonSerializer.Deserialize<List<PasswordEntry>>(json) ?? new List<PasswordEntry>();
+
+                    // update interface
+                    lstPasswords.Items.Clear();
+                    foreach (var entry in passwordEntries) 
+                    {
+                        lstPasswords.Items.Add(entry);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading passwords: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
